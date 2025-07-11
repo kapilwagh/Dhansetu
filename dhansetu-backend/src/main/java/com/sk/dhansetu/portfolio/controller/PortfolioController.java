@@ -1,5 +1,7 @@
 package com.sk.dhansetu.portfolio.controller;
 
+import com.sk.dhansetu.portfolio.dto.CustomerPortfolioResponse;
+import com.sk.dhansetu.portfolio.dto.PortfolioAnalysisResponse;
 import com.sk.dhansetu.portfolio.model.CustomerHolding;
 import com.sk.dhansetu.portfolio.model.StockHolding;
 import com.sk.dhansetu.portfolio.service.PortfolioService;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/portfolio")
 public class PortfolioController {
@@ -25,8 +28,13 @@ public class PortfolioController {
 
 
     @GetMapping("/{customerId}/holdings")
-    public ResponseEntity<List<CustomerHolding>> getCustomerHoldingsController(@PathVariable Long customerId) {
+    public ResponseEntity<List<CustomerPortfolioResponse>> getCustomerHoldingsController(@PathVariable Long customerId) {
         return new ResponseEntity<>(portfolioService.getCustHoldingsService(customerId), HttpStatus.OK);
+    }
+
+    @GetMapping("/{customerId}/analysis")
+    public ResponseEntity<List<PortfolioAnalysisResponse>> getCustoHoldingsController(@PathVariable Long customerId) {
+        return new ResponseEntity<>(portfolioService.getCustHoldingsDetailsService(customerId), HttpStatus.OK);
     }
 
 }
