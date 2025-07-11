@@ -7,7 +7,37 @@ import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Lock from '@mui/icons-material/Lock';
 
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
+  // Dummy user credentials
+  const DUMMY_USERS = [
+    { phone: '9876543210', password: 'pass123' },
+    { phone: '9123456789', password: 'test456' },
+    { phone: '9001122233', password: 'demo789' },
+    { phone: '9998887777', password: 'rmone', role: 'rm' },
+    { phone: '8887776666', password: 'rmtwo', role: 'rm' },
+    { phone: '7776665555', password: 'rmthree', role: 'rm' }
+  ];
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const matchedUser = DUMMY_USERS.find(
+      user => phone.trim() === user.phone && password.trim() === user.password
+    );
+    if (matchedUser) {
+      setError('');
+      navigate('/user');
+    } else {
+      setError('Invalid phone number or password');
+    }
+  };
+
   return (
     <div className={styles.loginBg}>
       <div className={styles.logoTopLeft}>
@@ -27,39 +57,50 @@ const Login = () => {
                 Your Wealth Bridge<br />
                 <span style={{fontWeight: 400, fontSize: '1rem', color: '#23395d'}}>Login as User</span>
               </div>
-              <TextField
-                className={styles.input}
-                type="email"
-                placeholder="Email"
-                autoComplete="username"
-                variant="outlined"
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccountCircle style={{ color: '#5e4ae3' }} />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{ marginBottom: '18px', background: '#f8f7fc', borderRadius: '10px' }}
-              />
-              <TextField
-                className={styles.input}
-                type="password"
-                placeholder="Password"
-                autoComplete="current-password"
-                variant="outlined"
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Lock style={{ color: '#5e4ae3' }} />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{ marginBottom: '18px', background: '#f8f7fc', borderRadius: '10px' }}
-              />
-              <button className={styles.button}>Login</button>
+              <form onSubmit={handleSubmit} style={{width: '100%'}}>
+                <TextField
+                  className={styles.input}
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  label="Phone Number"
+                  value={phone}
+                  onChange={e => setPhone(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <span role="img" aria-label="phone" style={{fontSize:22, color:'#5e4ae3'}}>
+                          📞
+                        </span>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                {error && (
+                  <div style={{ color: 'red', marginTop: 8, fontWeight: 500, fontSize: 15 }}>
+                    {error}
+                  </div>
+                )}
+                <TextField
+                  className={styles.input}
+                  type="password"
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  variant="outlined"
+                  fullWidth
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Lock style={{ color: '#5e4ae3' }} />
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{ marginBottom: '18px', background: '#f8f7fc', borderRadius: '10px' }}
+                />
+                <button className={styles.button} type="submit">Login</button>
+              </form>
             </div>
           </div>
         </div>
