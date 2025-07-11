@@ -13,12 +13,6 @@ public class DhansetuApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DhansetuApplication.class, args);
 	}
-	@Bean
-	public CommandLineRunner loadData(UserRepository userRepo) {
-		return args -> {
-			userRepo.save(new User(null, "cust1", "pass123", "CUSTOMER"));
-			userRepo.save(new User(null, "rm1", "pass123", "RM"));
-		};
-	}
+
 
 }
