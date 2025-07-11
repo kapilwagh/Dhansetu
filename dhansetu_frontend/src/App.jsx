@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import UserDashboard from './pages/UserDashboard';
 import RMDashboard from './pages/RMDashboard';
 import BuildPortfolio from './pages/BuildPortfolio';
+import Analysis from './pages/Analysis';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserDashboard />} />
         <Route path="/rm" element={<RMDashboard />} />
+        <Route path="/analysis" element={<Analysis />} />
         <Route path="/build-portfolio" element={<BuildPortfolio />} />
       </Routes>
     </Router>
