@@ -108,8 +108,10 @@ const AnalysisTable = ({ data, onShowAlt, onShowComp }) => (
     <table className={styles.portfolioTable}>
       <thead>
         <tr>
+          <th>ID</th>
           <th>Investment</th>
           <th>Quantity</th>
+          <th>Health</th>
           <th>Buy</th>
           <th>Hold</th>
           <th>Sell</th>
@@ -118,8 +120,10 @@ const AnalysisTable = ({ data, onShowAlt, onShowComp }) => (
       <tbody>
         {data.map((row, i) => (
           <tr key={i}>
+            <td>{i + 1}</td>
             <td>{row.scrip}</td>
             <td>{row.qty}</td>
+            <td>{row.health !== undefined ? row.health : '-'}</td>
             <td style={{ color: '#00b386', fontWeight: 600 }}>Buy</td>
             <td style={{ color: '#f8b400', fontWeight: 600 }}>Hold</td>
             <td>
@@ -167,7 +171,7 @@ const UserDashboard = () => {
             <div style={{ flex: 2 }}>
               <div className={styles.actionRow}>
                 <button className={styles.actionBtn} onClick={() => navigate('/analysis')}>Analysis</button>
-                <button className={styles.actionBtn}>Build My Portfolio</button>
+                <button className={styles.actionBtn} onClick={() => navigate('/build-portfolio')}>Build My Portfolio</button>
 
 
 
@@ -204,7 +208,14 @@ const UserDashboard = () => {
                 <div className={styles.metricBlock}>
                   <div className={styles.metricIcon} style={{ background: '#fff3f6' }}><FavoriteIcon style={{ color: '#e04e99', fontSize: 32 }} /></div>
                   <div className={styles.metricLabel}>Health Score</div>
-                  <div className={styles.metricValue}>8.2/10</div>
+                  <div className={styles.metricValue}>{
+                    (() => {
+                      const healths = tableData.map(row => typeof row.health === 'number' ? row.health : null).filter(h => h !== null);
+                      if (healths.length === 0) return '-';
+                      const avg = healths.reduce((a, b) => a + b, 0) / healths.length;
+                      return `${avg.toFixed(1)}/10`;
+                    })()
+                  }</div>
                   <div className={styles.summaryHealthBar} />
                 </div>
               </div>
@@ -214,12 +225,14 @@ const UserDashboard = () => {
             <table className={styles.portfolioTable}>
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Customer ID</th>
                   <th>Scrip Name</th>
                   <th>Sector</th>
                   <th>LTP</th>
                   <th>Quantity</th>
                   <th>Avg Buy Price</th>
+                  <th>Health</th>
 
 
 
@@ -238,12 +251,14 @@ const UserDashboard = () => {
               <tbody>
                 {tableData.map((row, i) => (
                   <tr key={i}>
+                    <td>{i + 1}</td>
                     <td>{row.custId}</td>
                     <td>{row.scrip}</td>
                     <td>{row.sector}</td>
                     <td>{row.ltp}</td>
                     <td>{row.qty}</td>
                     <td>{row.avg}</td>
+                    <td>{row.health !== undefined ? row.health : '-'}</td>
                   </tr>
                 ))}
               </tbody>
