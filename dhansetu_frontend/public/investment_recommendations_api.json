@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Dhansetu",
+    "type": "Stock",
+    "category": "IT",
+    "predictedReturn": "16.00%",
+    "units": 12,
+    "cost": "3,500.00"
+  },
+  {
+    "name": "HDFC Bank",
+    "type": "Stock",
+    "category": "Banking",
+    "predictedReturn": "15.00%",
+    "units": 20,
+    "cost": "1,720.00"
+  },
+  {
+    "name": "Reliance Industries",
+    "type": "Stock",
+    "category": "Energy",
+    "predictedReturn": "14.00%",
+    "units": 10,
+    "cost": "2,885.00"
+  },
+  {
+    "name": "Nippon India Gold ETF",
+    "type": "Gold ETF",
+    "category": "Commodity",
+    "predictedReturn": "12.00%",
+    "units": 50,
+    "cost": "500.00"
+  },
+  {
+    "name": "HDFC Mid-Cap Opportunities Fund",
+    "type": "Mutual Fund",
+    "category": "Mid Cap",
+    "predictedReturn": "21.00%",
+    "units": 28.571,
+    "cost": "4,285.65"
+  },
+  {
+    "name": "DSP Midcap Fund",
+    "type": "Mutual Fund",
+    "category": "Mid Cap",
+    "predictedReturn": "19.50%",
+    "units": 35.714,
+    "cost": "4,285.68"
+  },
+  {
+    "name": "WhiteOak Capital Flexi Cap Fund",
+    "type": "Mutual Fund",
+    "category": "Flexi Cap",
+    "predictedReturn": "19.00%",
+    "units": 285.714,
+    "cost": "4,285.71"
+  }
+]

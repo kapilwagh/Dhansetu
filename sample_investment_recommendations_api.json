@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Infosys",
+    "type": "Stock",
+    "category": "IT",
+    "predictedReturn": "15.50%",
+    "units": 18,
+    "cost": "2,900.00"
+  },
+  {
+    "name": "ICICI Bank",
+    "type": "Stock",
+    "category": "Banking",
+    "predictedReturn": "14.80%",
+    "units": 25,
+    "cost": "1,120.00"
+  },
+  {
+    "name": "Larsen & Toubro",
+    "type": "Stock",
+    "category": "Infrastructure",
+    "predictedReturn": "13.90%",
+    "units": 8,
+    "cost": "3,400.00"
+  },
+  {
+    "name": "SBI Gold ETF",
+    "type": "Gold ETF",
+    "category": "Commodity",
+    "predictedReturn": "11.50%",
+    "units": 60,
+    "cost": "480.00"
+  },
+  {
+    "name": "Axis Midcap Fund",
+    "type": "Mutual Fund",
+    "category": "Mid Cap",
+    "predictedReturn": "20.20%",
+    "units": 30.000,
+    "cost": "4,100.00"
+  },
+  {
+    "name": "Kotak Emerging Equity Fund",
+    "type": "Mutual Fund",
+    "category": "Mid Cap",
+    "predictedReturn": "18.90%",
+    "units": 32.500,
+    "cost": "4,150.00"
+  },
+  {
+    "name": "Mirae Asset Large Cap Fund",
+    "type": "Mutual Fund",
+    "category": "Large Cap",
+    "predictedReturn": "17.80%",
+    "units": 210.000,
+    "cost": "4,200.00"
+  }
+]
