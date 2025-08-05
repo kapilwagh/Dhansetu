@@ -1,0 +1,9 @@
+
+Client: (role = cust)
+userID = 101, password = pass123
+userID = 102, password = test456
+userID = 103, password = demo789
+
+RM: (role = rm)
+userID = 1, password = rmone
+userID = 2, password = rmtwo

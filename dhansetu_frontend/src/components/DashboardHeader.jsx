@@ -16,13 +16,14 @@ const DashboardHeader = ({ userName = "Amit Shah", role = "User" }) => {
         </div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <Avatar sx={{ bgcolor: '#5e4ae3', width: 40, height: 40 }}>
-          <AccountCircleIcon fontSize="large" />
-        </Avatar>
+    
         <div style={{ textAlign: 'right' }}>
           <div style={{ fontWeight: 600, fontSize: 16 }}>{userName}</div>
           <div style={{ fontSize: 13, color: '#888' }}>{role}</div>
         </div>
+        <Avatar sx={{ bgcolor: '#5e4ae3', width: 40, height: 40 }}>
+          <AccountCircleIcon fontSize="large" />
+        </Avatar>
       </div>
     </div>
   );

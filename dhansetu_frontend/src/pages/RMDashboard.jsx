@@ -17,7 +17,7 @@ const RMDashboard = () => {
 
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://10.13.16.64:9001/rm/portfolio/${rmID}`);
+        const res = await fetch(`http://localhost:9001/rm/portfolio/${rmID}`);
         if (!res.ok) throw new Error("Failed to fetch RM data");
         const data = await res.json();
         console.log("Fetched RM Data:", data);

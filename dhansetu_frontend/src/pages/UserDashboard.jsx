@@ -6,6 +6,7 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import DashboardHeader from "../components/DashboardHeader";
 
 // Predefined color palette
@@ -183,7 +184,7 @@ const UserDashboard = () => {
     <div className={styles.dashboardBg}>
       <div className={styles.dashboardContent}>
         <div className={styles.dashboardContainer}>
-          <DashboardHeader userName="Amit Shah" role="User" />
+          <DashboardHeader userName={userID} role="Client" />
 
           {/* Top Section */}
           <div className={styles.topSection}>
@@ -230,7 +231,7 @@ const UserDashboard = () => {
                     className={styles.metricIcon}
                     style={{ background: "#edeaff" }}
                   >
-                    <MonetizationOnIcon
+                    <CurrencyRupeeIcon 
                       style={{ color: "#5e4ae3", fontSize: 32 }}
                     />
                   </div>

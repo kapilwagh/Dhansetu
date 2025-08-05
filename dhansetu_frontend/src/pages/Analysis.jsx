@@ -21,7 +21,7 @@ const Analysis = () => {
     const fetchAnalysis = async () => {
       try {
         const response = await fetch(
-          `http://10.13.16.64:9001/portfolio/${userID}/analysis`
+          `http://localhost:9001/portfolio/${userID}/analysis`
         );
         if (!response.ok) throw new Error("Failed to fetch analysis data");
         const data = await response.json();

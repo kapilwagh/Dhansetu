@@ -72,9 +72,9 @@ public class RmPortfolioService {
             List<CustomerHolding> byCustomerId = customerHoldingRepository.findByCustomerId(re.getCustid());
             double asDouble = byCustomerId.stream().mapToLong(t -> t.getHealthScore()).average().getAsDouble();
 //            double asDouble1 = byCustomerId.stream().mapToLong(t -> t.get()).average().getAsDouble();
-
+            double rounded = new BigDecimal(asDouble).setScale(2, RoundingMode.HALF_UP).doubleValue();
             RmPortfolioResponseList build = RmPortfolioResponseList.builder().custId(re.getCustid())
-                    .custName(re.getCustname()).pending(re.isPending()).healthScore(asDouble).build();
+                    .custName(re.getCustname()).pending(re.isPending()).healthScore(rounded).build();
             mPortfolioResponseList.add(build);
         }
        return mPortfolioResponseList;

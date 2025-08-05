@@ -65,14 +65,14 @@ const Login = () => {
       if (matchedUser.role === "cust") {
         // Fetch customer holdings
         const response = await fetch(
-          `http://10.13.16.64:9001/portfolio/${matchedUser.userID}/holdings`
+          `http://localhost:9001/portfolio/${matchedUser.userID}/holdings`
         );
         const data = await response.json();
         sessionStorage.setItem("holdings", JSON.stringify(data));
       } else if (matchedUser.role === "rm") {
         // Fetch RM customer portfolio
         const response = await fetch(
-          `http://10.13.16.64:9001/rm/portfolio/${matchedUser.userID}`
+          `http://localhost:9001/rm/portfolio/${matchedUser.userID}`
         );
         const data = await response.json();
         console.log("Fetched RM Portfolio:", data);
@@ -146,10 +146,10 @@ const Login = () => {
                       <InputAdornment position="start">
                         <span
                           role="img"
-                          aria-label="phone"
+                          aria-label="user"
                           style={{ fontSize: 22, color: "#5e4ae3" }}
                         >
-                          📞
+                          👤
                         </span>
                       </InputAdornment>
                     ),
